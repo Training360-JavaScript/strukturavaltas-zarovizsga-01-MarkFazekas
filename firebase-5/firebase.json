@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "markfazekas-firebase-5",
     "public": "public",
     "ignore": [
       "firebase.json",
