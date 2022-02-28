@@ -1,0 +1,48 @@
+<div class="row mt-5" *ngIf="carObject">
+  <div class="col-6 offset-3">
+    <div class="card">
+      <div class="card-header card-header-info">
+        <h4 class="card-title">Edit Car</h4>
+      </div>
+      <div class="card-body">
+        <form #carForm="ngForm" (ngSubmit)="onUpdate(carObject)">
+          <input type="hidden" name="id" [(ngModel)]="carObject.id">
+
+          <div class="form-group">
+            <label >model</label>
+            <input class="form-control" type="text" name="model" [(ngModel)]="carObject.model" required [pattern]="modelPattern">
+          </div>
+
+          <div class="form-group">
+            <label >make</label>
+            <input class="form-control" type="text" name="make" [(ngModel)]="carObject.make" [pattern]="makePattern" required>
+          </div>
+
+          <div class="form-group">
+            <label>year</label>
+            <input class="form-control" type="number" name="year" [(ngModel)]="carObject.year" [pattern]="yearPattern" required>
+          </div>
+          <div class="form-group">
+            <label>price</label>
+            <input class="form-control" type="number" name="price" [(ngModel)]="carObject.price" [pattern]="pricePattern" required>
+          </div>
+          <div class="form-group">
+            <label>stock</label>
+            <input class="form-control" type="number" name="stock" [(ngModel)]="carObject.stock" [pattern]="stockPattern" required>
+          </div>
+          <div class="form-group">
+            <label>active</label>
+            <select class="form-control" name="active" [(ngModel)]="carObject.active" required>
+              <option [value]="true">True </option>
+              <option [value]="false">False </option>
+            </select>
+          </div>
+
+          <button [disabled]="!carForm.valid" type="submit" class="btn btn-success">
+            <i class="fa fa-save"></i>
+            Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
